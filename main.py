@@ -118,3 +118,5 @@ menu()
 
 cursor.close()
 conn.close()
+
+# © t.me/BTWDJ
