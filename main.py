@@ -23,9 +23,12 @@ CREATE TABLE IF NOT EXISTS students (
 """)
 
 def add():
+    print("---------------------------------------------------")
     print("-----ADD A STUDENT RECORD-----")
     DJ = int(input("Enter the no. of records you want to add: "))
+    print("---------------------------------------------------")
     for i in range(DJ):
+        print("-----ADD A STUDENT RECORD-----")
         roll_no = int(input("Enter student's Roll_no: "))
         name = input("Enter student Name: ")
         Class = int(input("Enter student's Class: "))
@@ -35,7 +38,9 @@ def add():
         values = (roll_no, name, Class, subject, fees)
         cursor.execute(query, values)
         conn.commit()
-        print("Student added successfully!")
+        print("---------------------------------------------------")
+        print("RECORD ADDED SUCCESSFULLY")
+        print("---------------------------------------------------")
 
 def search():
     print("-----SEARCH A STUDENT BY ROLL_NO-----")
@@ -48,7 +53,7 @@ def search():
         for student in results:
             print(f"Roll_no: {student[0]}, Name: {student[1]}, Class: {student[2]}, Subject: {student[3]}, Fee: {student[4]}")
     else:
-        print("No such Student found.")
+        print("NO SUCH RECORD EXIST")
 
 def show():
     print("-----SHOW A STUDENT RECORD-----")
@@ -58,7 +63,7 @@ def show():
         for student in results:
             print(f"Roll_no: {student[0]}, Name: {student[1]}, Class: {student[2]}, Subject: {student[3]}, Fee: {student[4]}")
     else:
-        print("No students found.")
+        print("NO STUDENST FOUND")
 
 def delete():
     print("-----DELETE A STUDENT RECORD BY ROLL_NO-----")
@@ -68,7 +73,7 @@ def delete():
         values = (TG,)
         cursor.execute(query, values)
         conn.commit()
-        print("Student deleted successfully!")
+        print("------deleted successfully------")
     except:
         conn.rollback()
 
@@ -94,6 +99,8 @@ def menu():
         print("4 FOR UPDATE STUDENT RECORD")
         print("5 FOR DELETE STUDENT RECORD")
         print("6. Exit")
+        print("\n")
+        print("---------------------------------------------------")
         choice = input("Enter your choice: ")
         if choice == '1':
             add()
@@ -106,7 +113,7 @@ def menu():
         elif choice == '5':
             delete()
         elif choice == '6':
-            print("Exiting...")
+            print("EXIT")
             break
         else:
             print("Invalid choice. Please try again.")
