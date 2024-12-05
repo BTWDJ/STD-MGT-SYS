@@ -1,13 +1,11 @@
 import mysql.connector
-
 conn = mysql.connector.connect(
     host="localhost",
-    user="DJ",  
-    password="1234",  
-    database="SAMPLE"  
+    user="root",  
+    password="8585",  
+    database="student_db"  
 )
 cursor = conn.cursor()
-
 print("****************************************************************")
 print("                STUDENT MANAGEMENT SYSTEM                ")
 print("****************************************************************")
@@ -71,7 +69,6 @@ def delete():
         cursor.execute(query, values)
         conn.commit()
         print("Student deleted successfully!")
-    
     except:
         conn.rollback()
 
@@ -91,23 +88,23 @@ def update():
 def menu():
     while True:
         print("\n--- Student Management System ---")
-        print("1. Add Student")
-        print("2. Delete Student")
-        print("3. Show All Students")
-        print("4. Search Student")
-        print("5. Update Student")
+        print("1 FOR ADD STUDENT RECORD")
+        print("2 FOR SEARCH STUDENT RECORD")
+        print("3 FOR SHOW STUDENT RECORD")
+        print("4 FOR UPDATE STUDENT RECORD")
+        print("5 FOR DELETE STUDENT RECORD")
         print("6. Exit")
         choice = input("Enter your choice: ")
         if choice == '1':
             add()
         elif choice == '2':
-            delete()
+            search()
         elif choice == '3':
             show()
         elif choice == '4':
-            search()
-        elif choice == '5':
             update()
+        elif choice == '5':
+            delete()
         elif choice == '6':
             print("Exiting...")
             break
@@ -118,5 +115,3 @@ menu()
 
 cursor.close()
 conn.close()
-
-# © t.me/BTWDJ
