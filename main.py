@@ -1,5 +1,5 @@
-import mysql.connector
-conn = mysql.connector.connect(
+import pymysql
+conn = pymysql.connect(
     host="localhost",
     user="root",  
     password="8585",  
